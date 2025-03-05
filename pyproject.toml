@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm>=8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fast_AUC"
+dynamic = ["version"]
+authors = [
+  { name="Matthew McDermott", email="mattmcdermott8@gmail.com" },
+]
+description = "Exports functions to compute AUC more quickly than most existing libraries."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Framework :: Pytest",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [ "numpy" ]
+
+[project.optional-dependencies]
+dev = ["pre-commit<4"]
+tests = ["pytest-cov"]
+docs = [
+  "mkdocs==1.6.1", "mkdocs-material==9.6.7", "mkdocstrings[python,shell]==0.28.2", "mkdocs-gen-files==0.5.0",
+  "mkdocs-literate-nav==0.6.1", "mkdocs-section-index==0.3.9", "mkdocs-git-authors-plugin==0.9.2",
+  "mkdocs-git-revision-date-localized-plugin==1.3.0"
+]
+
+[tool.setuptools_scm]
+
+[project.urls]
+Homepage = "https://github.com/mmcdermott/fast_AUC"
+Issues = "https://github.com/mmcdermott/fast_AUC/issues"
+
+[tool.pytest.ini_options]
+addopts = [
+  "--color=yes",
+  "--doctest-modules",
+  "--ignore=docs",
+]
